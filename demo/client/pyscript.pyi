@@ -36,14 +36,7 @@ class Window:
     Represents the browser window and provides access to Web APIs
     """
 
-    async def fetch(
-        self,
-        resource: str,
-        method: Optional[str] = None,
-        cache: Optional[str] = None,
-        body: Optional[str] = None,
-        headers: Any = None,
-    ) -> Response:
+    async def fetch(self, resource: str, options: Any) -> Response:
         """
         Performs an HTTP call
         """
