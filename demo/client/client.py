@@ -17,7 +17,7 @@ async def http_get(path: str, return_type: type[T]) -> T:
     """
     Performs an HTTP GET call, expecting JSON that can be converted to a given msgspec model
     """
-    response = await window.fetch(path, cache="no-cache", method="GET")
+    response = await window.fetch(path, {"cache": "no-cache", "method": "GET"})
     contents = await response.text()
     response_data = msgspec.json.decode(contents, type=return_type)
     return response_data
@@ -40,15 +40,15 @@ async def http_post(path: str, data: Any, return_type: type[T]) -> T:
         cache: "no-cache",
         method: "POST"
     });
-    but Pyscript instead expects the options to be provided as kwargs.
-    Changing this call below to provide the options as a dictionary will not work.
-    To try this, you also need to modify the .pyi file, or disable mypy.
+    This has been modified to correspond directly to the Javascript API, but that does not work
     """
     response = await window.fetch(
         path,
-        body=json_str,
-        cache="no-cache",
-        method="POST",
+        {
+            "body": json_str,
+            "cache": "no-cache",
+            "method": "POST",
+        },
     )
 
     contents = await response.text()
