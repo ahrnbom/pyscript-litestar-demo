@@ -1,0 +1,7 @@
+name = "Demo"
+packages = ["msgspec"]
+
+
+
+[files]
+"models.py"= "demo/client/models.py"

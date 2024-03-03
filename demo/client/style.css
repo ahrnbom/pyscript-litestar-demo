@@ -1,0 +1,8 @@
+p.font-mono {
+    font-family: monospace;
+    font-size: x-large;
+}
+
+body {
+    background-color: lightgray;
+}

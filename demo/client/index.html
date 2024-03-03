@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html>
+    <head>
+        <!-- Default meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+        <!-- PyScript's CSS -->
+        <link rel="stylesheet" href="https://pyscript.net/releases/2024.2.1/core.css">
+        
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="style.css">
+
+        <!-- Load PyScript -->
+        <script type="module" src="https://pyscript.net/releases/2024.2.1/core.js"></script>
+
+        <!-- Loading screen -->
+        <style>
+            #loading { outline: none; border: none; background: transparent; font-family: monospace; }
+        </style>
+        <script type="module">
+            const loading = document.getElementById('loading');
+            addEventListener('py:ready', () => loading.close());
+            loading.showModal();
+        </script>
+
+        <title>Pyscript and Litestar Demo</title>
+    </head>
+
+    <body>
+        <dialog id="loading">
+            <h1>🚧 Loading 🚧</h1>
+        </dialog>
+
+        <section class="pyscript">
+            <p class="font-mono" id="output">
+                
+            </p>
+
+            <script type="py" src="./client.py" config="./pyscript.toml" async></script>
+        </section>
+    </body>
+</html>
